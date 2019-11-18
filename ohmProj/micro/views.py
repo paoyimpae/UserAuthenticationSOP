@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, logout, login
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -10,7 +10,7 @@ def register(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            redirect('login')
+            return redirect('login')
     else:
         form = RegistrationForm()
     args = {'form': form}
@@ -21,7 +21,7 @@ def home(request):
     return render(request, template_name='micro/home.html')
 
 
-def login(request):
+def my_login(request):
     context = {}
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -50,6 +50,6 @@ def login(request):
     return render(request, template_name='micro/login.html', context=context)
 
 
-def logout(request):
+def my_logout(request):
     logout(request)
     return redirect('login')

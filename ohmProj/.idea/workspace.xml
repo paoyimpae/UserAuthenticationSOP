@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1c69c753-ec2d-4e5d-b75d-e8341b67548f" name="Default Changelist" comment="" />
+    <list default="true" id="1c69c753-ec2d-4e5d-b75d-e8341b67548f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/micro/templates/micro/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/micro/templates/micro/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/micro/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/micro/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/micro/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/micro/views.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +22,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1TkbXzVnV2vqyOJUKkbEIfM35GL" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -86,10 +96,25 @@
       <workItem from="1574011333656" duration="635000" />
       <workItem from="1574085526681" duration="570000" />
       <workItem from="1574087324521" duration="746000" />
+      <workItem from="1574089353444" duration="186000" />
+      <workItem from="1574090090819" duration="147000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
