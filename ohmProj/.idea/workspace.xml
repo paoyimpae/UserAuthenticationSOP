@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c69c753-ec2d-4e5d-b75d-e8341b67548f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/micro/templates/micro/acc_active_email.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/micro/tokens.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/micro/templates/micro/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/micro/templates/micro/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/micro/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/micro/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/micro/templates/micro/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/micro/templates/micro/signup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/micro/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/micro/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/micro/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/micro/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ohmProj/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ohmProj/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +101,9 @@
       <workItem from="1574085526681" duration="570000" />
       <workItem from="1574087324521" duration="746000" />
       <workItem from="1574089353444" duration="186000" />
-      <workItem from="1574090090819" duration="147000" />
+      <workItem from="1574090090819" duration="293000" />
+      <workItem from="1574090537534" duration="1319000" />
+      <workItem from="1574091906397" duration="798000" />
     </task>
     <servers />
   </component>
