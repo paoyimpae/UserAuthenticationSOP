@@ -13,6 +13,8 @@ import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
+
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import usermanagement.sop.models.User;
 
@@ -92,8 +94,11 @@ public class FirebaseService {
     }
 
     private void initDB() throws IOException {
-        ClassLoader classLoader = getClass().getClassLoader();
-        File configFile = new File(classLoader.getResource("usermanagementsystem-e01b6-firebase-adminsdk-hw0bk-eca2fdbb76.json").getFile());
+    	ClassPathResource res = new ClassPathResource(System.getProperty("user.dir") + "\\src\\main\\resources\\userManagement.json");    
+    	File configFile = new File(res.getPath());
+    			
+        // ClassLoader classLoader = getClass().getClassLoader();
+        // File configFile = new File(getClass().getResource("userManagement.json").getFile());
         InputStream serviceAccount = new FileInputStream(configFile);
         GoogleCredentials credentials = GoogleCredentials.fromStream(serviceAccount);
         FirebaseOptions options = new FirebaseOptions.Builder()

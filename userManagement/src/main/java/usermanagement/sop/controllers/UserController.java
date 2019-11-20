@@ -23,6 +23,7 @@ import usermanagement.sop.services.FirebaseService;
 @RequestMapping("/api/user")
 public class UserController {
 
+	/* This is a Part of User Management  */
     @Autowired
     FirebaseService firebaseService;
     @PostMapping("/add")
@@ -39,4 +40,5 @@ public class UserController {
     public void deleteUser(@PathVariable String username) throws Exception {
     	firebaseService.deleteDocument(username);
     }
+    
 }
