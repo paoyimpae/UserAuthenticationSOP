@@ -40,5 +40,4 @@ public class UserController {
     public void deleteUser(@PathVariable String username) throws Exception {
     	firebaseService.deleteDocument(username);
     }
-    
 }

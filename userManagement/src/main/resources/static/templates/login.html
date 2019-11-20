@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>💻 Our Microservice : Authentication Service 🌏</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/snackbarjs/dist/snackbar.min.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/titatoggle/dist/titatoggle-dist-min.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap-material-design/dist/css/roboto.min.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap-material-design/dist/css/ripples.min.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap-material-design/dist/css/material-fullpalette.min.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/nouislider/distribute/nouislider.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .navbar-brand {
+            margin: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .btn {;
+            text-align: center;
+            border-radius: 10px;
+            margin: 5%;
+        }
+        .part {
+            width: auto;
+            margin-top: 75px;
+            padding: auto;
+            display: block;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #25BBAA;
+            border-radius: 20px;
+        }
+        .row-1 {
+            display: block;
+        }
+        .row-2 {
+            display: block;
+            padding-left: 10%;
+            margin-top: 20%;
+            margin-bottom: 5%;
+        }
+        .form-login {
+            width: 90%;
+            display: block;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <nav 
+        class="navbar navbar-light bg-light" 
+        style="position:fixed; top:0; overflow: hidden; width: 100%; z-index: 1;">
+    </nav>
+    <div class="part">
+        <div class="row-1">
+            <a class="navbar-brand" href="index">
+                <label class="badge btn-primary" 
+                    style="font-family: 'TH SarabunPSK'; font-size: 30px; padding: 15px;">
+                    💻 Microservices : Authentication Service 🔐
+                </label>
+            </a>
+        </div>
+        <div class="row-2">
+            <form class="form-login">
+                <div class="form-group">
+                    <label for="loginEmail">E-mail ของท่าน</label>
+                    <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="กรุณาพิมพ์ E-mail">
+                    <small id="emailHelp" class="form-text text-muted">เราจะไม่เผยแผร่ E-mail ของท่าน</small>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password ของท่าน</label>
+                    <input type="password" class="form-control" id="loginPassword" placeholder="Password">
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="loginRemember">
+                    <label class="form-check-label" for="loginRemember">จดจำฉันเอาไว้ตลอด</label>
+                </div>
+                <button style="margin-left: 35%;" type="submit" class="btn btn-success">เข้าสู่ระบบ</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
