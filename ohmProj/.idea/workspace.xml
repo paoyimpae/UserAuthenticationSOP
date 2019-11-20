@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1c69c753-ec2d-4e5d-b75d-e8341b67548f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ohmProj/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ohmProj/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,6 +99,11 @@
       <workItem from="1574090537534" duration="1319000" />
       <workItem from="1574091906397" duration="798000" />
       <workItem from="1574093721726" duration="278000" />
+      <workItem from="1574094719925" duration="459000" />
+      <workItem from="1574097100067" duration="5000" />
+      <workItem from="1574241935209" duration="253000" />
+      <workItem from="1574263778503" duration="152000" />
+      <workItem from="1574269812322" duration="473000" />
     </task>
     <servers />
   </component>
