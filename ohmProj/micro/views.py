@@ -34,7 +34,7 @@ def signup(request):
                 mail_subject, message, to=[to_email]
             )
             email.send()
-            return HttpResponse('Please confirm your email address to complete the registration')
+            return HttpResponse('Please Confirm Your E-mail Address to Complete the Registration.')
     else:
         form = SignupForm()
     return render(request, 'micro/signup.html', {'form': form})
@@ -50,9 +50,9 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.save()
         login(request, user)
-        return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
+        return HttpResponse('Thank You for Your E-mail Confirmation. Now You Can Login Your Account.')
     else:
-        return HttpResponse('Activation link is invalid!')
+        return HttpResponse('Activation Link is Invalid !')
 
 
 def home(request):
@@ -79,7 +79,7 @@ def my_login(request):
         else:
             context['username'] = username
             context['password'] = password
-            context['error'] = 'Wrong username or password'
+            context['error'] = 'Wrong Username or Password !'
 
     # next_url = request.GET.get('next')
     # if next_url:

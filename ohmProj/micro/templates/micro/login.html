@@ -1,25 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
+	<title>💻 Our Microservice : Authentication Service 🌏</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'bower_components/snackbarjs/dist/snackbar.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'bower_components/titatoggle/dist/titatoggle-dist-min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'bower_components/bootstrap-material-design/dist/css/roboto.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'bower_components/bootstrap-material-design/dist/css/ripples.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'bower_components/bootstrap-material-design/dist/css/material-fullpalette.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'bower_components/nouislider/distribute/nouislider.min.css' %}">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .navbar-brand {
+            margin: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .btn {;
+            text-align: center;
+            border-radius: 10px;
+            margin: 5%;
+        }
+        .part {
+            width: auto;
+            margin-top: 75px;
+            padding: auto;
+            display: block;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #25BBAA;
+            border-radius: 20px;
+        }
+        .row-1 {
+            display: block;
+        }
+        .row-2 {
+            display: block;
+            padding-left: 10%;
+            margin-top: 20%;
+            margin-bottom: 5%;
+        }
+        .form-login {
+            width: 90%;
+            display: block;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
- <form method="post" action="{% url 'login' %}">
-            {% csrf_token %}
-            {% if error %}
-            <tr>
-                <td colspan="2">
-                    <span style="color: red; text-align: center;">{{ error }}</span>
-                </td>
-            </tr>
-
-            {% endif %}
-<label>Username : </label>
-<input type="text" name="username" class="form-control" placeholder="Username">
-<label>Password : </label>
-<input type="password" name="password" class="form-control" placeholder="Password">
-<button type="submit" value="LOGIN">Submit</button>
- </form>
+    <nav 
+        class="navbar navbar-light bg-light" 
+        style="position:fixed; top:0; overflow: hidden; width: 100%; z-index: 1;">
+    </nav>
+    <div class="part">
+        <div class="row-1">
+            <a class="navbar-brand" href="{% url 'login' %}">
+                <label class="badge btn-primary" 
+                    style="font-family: 'TH SarabunPSK'; font-size: 30px; padding: 15px;">
+                    💻 Microservices : Authentication Service 🔐
+                </label>
+            </a>
+        </div>
+        <div class="row-2">
+            <form class="form-login" method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                {% if error %}
+                    <center>
+                        <tr>
+                            <td colspan="2">
+                                <span style="color: red; text-align: center;">{{ error }}</span>
+                            </td>
+                        </tr>
+                    </center>
+                    <br /><br />
+                {% endif %}
+                <label>Username : </label>
+                <input type="text" name="username" class="form-control" placeholder="Username">
+                <br />
+                <label>Password : </label>
+                <input type="password" name="password" class="form-control" placeholder="Password">
+                <br />
+                <center>
+                    <button class="btn btn-primary" type="submit" value="LOGIN">LOG IN</button>
+                </center>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

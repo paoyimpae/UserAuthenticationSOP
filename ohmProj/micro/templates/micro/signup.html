@@ -1,19 +1,104 @@
-{% block content %}
-  <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-      {% for field in form %}
-      <p>
-        {{ field.label_tag }}<br>
-        {{ field }}
-        {% if field.help_text %}
-          <small style="display: none">{{ field.help_text }}</small>
-        {% endif %}
-        {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
-        {% endfor %}
-      </p>
-      {% endfor %}
-    <button type="submit">Sign up</button>
-  </form>
-{% endblock %}
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>💻 Our Microservice : Authentication Service 🌏</title>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'bower_components/snackbarjs/dist/snackbar.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'bower_components/titatoggle/dist/titatoggle-dist-min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'bower_components/bootstrap-material-design/dist/css/roboto.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'bower_components/bootstrap-material-design/dist/css/ripples.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'bower_components/bootstrap-material-design/dist/css/material-fullpalette.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'bower_components/nouislider/distribute/nouislider.min.css' %}">
+  <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .navbar-brand {
+            margin: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .btn {;
+            text-align: center;
+            border-radius: 10px;
+            margin: 5%;
+        }
+        .part {
+            width: auto;
+            margin-top: 75px;
+            padding: auto;
+            display: block;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #25BBAA;
+            border-radius: 20px;
+        }
+        .row-1 {
+            display: block;
+        }
+        .row-2 {
+            display: block;
+            padding-left: 10%;
+            margin-top: 20%;
+            margin-bottom: 5%;
+        }
+        .form-register {
+            width: 90%;
+            display: block;
+            justify-content: center;
+            align-items: center;
+        }
+  </style>
+</head>
+<body>
+    <nav 
+        class="navbar navbar-light bg-light" 
+        style="position:fixed; top:0; overflow: hidden; width: 100%; z-index: 1;">
+    </nav>
+    <div class="part">
+        <div class="row-1">
+            <a class="navbar-brand" href="{% url 'login' %}">
+                <label class="badge btn-primary" 
+                    style="font-family: 'TH SarabunPSK'; font-size: 30px; padding: 15px;">
+                    💻 Microservices : Authentication Service 🔐
+                </label>
+            </a>
+        </div>
+        <div class="row-2">
+            {% block content %}
+              <center>
+                <b
+                  class="text text-primary" 
+                  style="margin-right : 10%; font-family: 'TH SarabunPSK'; font-size: 2em;">
+                  Sign up
+                </b>
+              </center>
+              <form class="form-register" method="post">
+                {% csrf_token %}
+                  {% for field in form %}
+                  <p>
+                    {{ field.label_tag }}<br>
+                    {{ field }}
+                    {% if field.help_text %}
+                      <small style="display: none">{{ field.help_text }}</small>
+                      <br />
+                    {% endif %}
+                    {% for error in field.errors %}
+                      <p style="color: red">{{ error }}</p>
+                    {% endfor %}
+                  </p>
+                  {% endfor %}
+                <center>
+                    <button class="btn btn-danger" type="submit" value="SIGNUP">SIGN UP</button>
+                </center>
+              </form>
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>
