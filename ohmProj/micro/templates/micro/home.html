@@ -67,7 +67,8 @@
             <b
                 class="text text-primary" 
                 style="margin-left : 29%; font-family: 'TH SarabunPSK'; font-size: 2em;">
-                This is Home !!!
+                <h2>Welcome, {{ user.get_full_name }} !</h2>
+                <p>Your email address: {{ user.email }}</p>
             </b><br>
             <p><center><a class="btn btn-primary" style="margin-right: 20%;" href="{% url 'logout' %}">Logout</a></center></p>
         </div>

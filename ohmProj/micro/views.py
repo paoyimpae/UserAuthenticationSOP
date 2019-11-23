@@ -10,8 +10,8 @@ from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
-from micro.forms import SignupForm
-from micro.tokens import account_activation_token
+from .forms import SignupForm
+from .tokens import account_activation_token
 
 
 def signup(request):
@@ -50,7 +50,7 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.save()
         login(request, user)
-        return HttpResponse('Thank You for Your E-mail Confirmation. Now You Can Login Your Account.')
+        return render(request, 'micro/home.html')
     else:
         return HttpResponse('Activation Link is Invalid !')
 

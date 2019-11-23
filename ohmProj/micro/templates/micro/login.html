@@ -11,7 +11,8 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'bower_components/bootstrap-material-design/dist/css/roboto.min.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'bower_components/bootstrap-material-design/dist/css/ripples.min.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'bower_components/bootstrap-material-design/dist/css/material-fullpalette.min.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'bower_components/nouislider/distribute/nouislider.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bower_components/nouislider/distribute/nouislider.min.css' %}">
+
     <style>
         body {
             display: flex;
@@ -83,12 +84,15 @@
                     <br /><br />
                 {% endif %}
                 <label>Username : </label>
-                <input type="text" name="username" class="form-control" placeholder="Username">
+                <input type="text" name="username" class="form-control" placeholder="Enter Username">
                 <br />
                 <label>Password : </label>
                 <input type="password" name="password" class="form-control" placeholder="Password">
                 <br />
-                <center>
+                <!-- <label>ENTER OTP : </label>
+                    <input type="text" name="" placeholder='Enter OTP' class='form-control' id='eotp' value=""/>
+                <br/> -->
+                    <center>
                     <button class="btn btn-primary" type="submit" value="LOGIN">LOG IN</button>
                 </center>
             </form>
