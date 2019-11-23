@@ -69,33 +69,30 @@
                 </label>
             </a>
         </div>
-        <div class="row-2">
+        <div class="row-2" style="text-align: center;">
             {% block content %}
-              <center>
                 <b
                   class="text text-primary" 
                   style="margin-right : 10%; font-family: 'TH SarabunPSK'; font-size: 2em;">
                   Sign up
                 </b>
-              </center>
               <form class="form-register" method="post">
                 {% csrf_token %}
                   {% for field in form %}
                   <p>
                     {{ field.label_tag }}<br>
                     {{ field }}
-                    {% if field.help_text %}
+                    <!-- {% if field.help_text %}
                       <small style="display: none">{{ field.help_text }}</small>
                       <br />
-                    {% endif %}
+                    {% endif %} -->
                     {% for error in field.errors %}
                       <p style="color: red">{{ error }}</p>
                     {% endfor %}
                   </p>
                   {% endfor %}
-                <center>
+
                     <button class="btn btn-danger" type="submit" value="SIGNUP">SIGN UP</button>
-                </center>
               </form>
             {% endblock %}
         </div>
