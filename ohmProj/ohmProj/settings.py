@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'micro'
+    
 ]
+AUTH_USER_MODEL = 'micro.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -90,7 +92,7 @@ DATABASES = {
 
     'default': {
         'ENGINE':'django.db.backends.mysql',
-        'NAME': 'authen2',
+        'NAME': 'authen',
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': '127.0.0.1',
