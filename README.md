@@ -64,8 +64,7 @@
 | ชื่อ - นามสกุล | รหัสนักศึกษา |  รูปภาพ | รับผิดชอบในส่วนของ | 
 | :--------: | :--------: | :--------: | :--------: |
 |   ฐนกร ปานไทยกุล |   60070017   |    ![Ohm](images/Ohm.jpg)   | E-mail One-Time Password |
-|   ศตพล เกตุรัตนกุล   |   60070072   |    ![Pao](images/Pao.jpg)   |  
-User Group Management |
+|   ศตพล เกตุรัตนกุล   |   60070072   |    ![Pao](images/Pao.jpg)   |  User Group Management |
 |   ศุภกฤต อภิญญาณพงศ์   |   60070097   |    ![Ton](images/Ton.jpg)   | Access Checking |
 |   ไอศูรย์ ทิมศรี   |   60070121   |    ![Ken](images/Ken.jpg)   | User E-mail Verification |
 
