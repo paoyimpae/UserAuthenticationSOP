@@ -7,6 +7,7 @@ from django.db import models
 
 Group.add_to_class('description', models.CharField(max_length=180,null=True, blank=True))
 
+
 class User(AbstractUser):
     telephone = models.CharField(max_length=10)
 

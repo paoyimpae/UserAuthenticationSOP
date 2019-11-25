@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1c69c753-ec2d-4e5d-b75d-e8341b67548f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="1c69c753-ec2d-4e5d-b75d-e8341b67548f" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +31,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/micro/templates/registration" />
       <recent name="$PROJECT_DIR$/micro/templates/micro" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -97,6 +96,10 @@
       <workItem from="1574090537534" duration="1319000" />
       <workItem from="1574091906397" duration="798000" />
       <workItem from="1574093721726" duration="278000" />
+      <workItem from="1574699790502" duration="55000" />
+      <workItem from="1574699884883" duration="956000" />
+      <workItem from="1574701080656" duration="2945000" />
+      <workItem from="1574708099166" duration="618000" />
     </task>
     <servers />
   </component>

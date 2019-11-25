@@ -27,7 +27,7 @@ def signup(request):
             message = render_to_string('micro/acc_active_email.html', {
                 'user': user,
                 'domain': current_site.domain,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                'uid': urlsafe_base64_encode(force_bytes(user.pk)).decode,
                 'token': account_activation_token.make_token(user),
             })
             to_email = form.cleaned_data.get('email')
@@ -87,7 +87,7 @@ def my_login(request):
     # if next_url:
     #     context['next_url'] = next_url
 
-    return render(request, template_name='micro/login.html', context=context)
+    return render(request, template_name='micro/templates/registration/login.html', context=context)
 
 
 def my_logout(request):
