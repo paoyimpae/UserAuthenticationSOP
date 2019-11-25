@@ -64,8 +64,9 @@
 | ชื่อ - นามสกุล | รหัสนักศึกษา |  รูปภาพ | รับผิดชอบในส่วนของ | 
 | :--------: | :--------: | :--------: | :--------: |
 |   ฐนกร ปานไทยกุล |   60070017   |    ![Ohm](images/Ohm.jpg)   | E-mail One-Time Password |
-|   ศตพล เกตุรัตนกุล   |   60070072   |    ![Pao](images/Pao.jpg)   | E-mail Verification |
-|   ศุภกฤต อภิญญาณพงศ์   |   60070097   |    ![Ton](images/Ton.jpg)   | User Group Management |
-|   ไอศูรย์ ทิมศรี   |   60070121   |    ![Ken](images/Ken.jpg)   | User Access Checking |
+|   ศตพล เกตุรัตนกุล   |   60070072   |    ![Pao](images/Pao.jpg)   |  
+User Group Management |
+|   ศุภกฤต อภิญญาณพงศ์   |   60070097   |    ![Ton](images/Ton.jpg)   | Access Checking |
+|   ไอศูรย์ ทิมศรี   |   60070121   |    ![Ken](images/Ken.jpg)   | User E-mail Verification |
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;โครงงานนี้เป็นส่วนหนึ่งของวิชา Service-Oriented Programming (06016325) ชั้นปีที่ 3 ภาคการศึกษาที่ 1 ปีการศึกษา 2562 สาขาเทคโนโลยีสารสนเทศ คณะเทคโนโลยีสารสนเทศ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
