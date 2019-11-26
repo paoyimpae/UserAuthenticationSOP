@@ -76,25 +76,29 @@
                   style="margin-right : 10%; font-family: 'TH SarabunPSK'; font-size: 2em;">
                   Sign up
                 </b>
+                
               <form class="form-register" method="post">
+                <br />
                 {% csrf_token %}
                   {% for field in form %}
-                  <p>
-                    {{ field.label_tag }}<br>
+                  
+                    {{ field.label_tag }}
+                    &nbsp
                     {{ field }}
                     <!-- {% if field.help_text %}
                       <small style="display: none">{{ field.help_text }}</small>
                       <br />
                     {% endif %} -->
                     {% for error in field.errors %}
-                      <p style="color: red">{{ error }}</p>
+                      <strong style="color: red">{{ error }}</strong>
                     {% endfor %}
-                  </p>
+                    
+                    <br />
+                    <br />
                   {% endfor %}
-
-                    <button class="btn btn-danger" type="submit" value="SIGNUP">SIGN UP</button>
+                  <button class="btn btn-danger" type="submit" value="SIGNUP">SIGN UP</button>
               </form>
-              <a href="{% url 'login' %}">Already have an account?</a>
+              <a style="margin-right: 10%;" href="{% url 'login' %}">Already have an account ?</a>
             {% endblock %}
         </div>
     </div>

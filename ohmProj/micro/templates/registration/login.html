@@ -24,7 +24,7 @@
             text-align: center;
             border-radius: 10px;
         }
-        .btn {;
+        .btn {
             text-align: center;
             border-radius: 10px;
             margin: 5%;
@@ -71,34 +71,55 @@
             </a>
         </div>
         <div class="row-2">
+            <br />
             <form class="form-login" method="post" action="{% url 'login' %}">
                 {% csrf_token %}
-    {% if form.errors %}
-        {% for field in form %}
-            {% for error in field.errors %}
+                {% if form.errors %}
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <div>
+                                <strong>{{ error|escape }}</strong>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                        <div>
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                    {% endfor %}
+                    <br />
+                {% endif %}
+                <center>
                 <div>
-                    <strong>{{ error|escape }}</strong>
+                    <label for="form.username.id_for_label">{{ form.username.label }}</label>
+                    &nbsp:&nbsp
+                    {{ form.username }}
                 </div>
-            {% endfor %}
-        {% endfor %}
-        {% for error in form.non_field_errors %}
-            <div>
-                <strong>{{ error|escape }}</strong>
-            </div>
-        {% endfor %}
-    {% endif %}
-    <div><label for="form.username.id_for_label">{{ form.username.label }}</label>{{ form.username }}</div>
-    <label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
-    <div><input id="{{ form.password.id_for_label }}" type="password" name="{{ form.password.name }}"
-           value="{{ form.password.data|default_if_none:"" }}"></div>
-    <div><label for="{{ form.otp.id_for_label }}">{{ form.otp.label }}</label>{{ form.otp }}</div>
-            <center>
-    <button type="submit">Login</button>
-    
+                <br />
+                <div>
+                    <label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
+                    &nbsp:&nbsp
+                    <input id="{{ form.password.id_for_label }}" type="password" name="{{ form.password.name }}"
+                    value="{{ form.password.data|default_if_none:"" }}">
+                </div>
+                <br />
+                {% if form.non_field_errors %}
+                    <div>
+                        <label for="{{ form.otp.id_for_label }}">{{ form.otp.label }}</label>
+                        &nbsp:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        {{ form.otp }}
+                    </div>
+                {% endif %}
+                </center>
+                <center>
+                    <button class="btn btn-primary" type="submit">Login</button>
+                </center>
+                <center>
+                    <a class="text" href="{% url 'signup' %}">Sign Up</a>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <a class="text" href="">Forgot the Password</a>
                 </center>
             </form>
-            <a href="{% url 'signup' %}">signup</a>
-            <a href="">ลืมรหัส</a>
         </div>
     </div>
 </body>

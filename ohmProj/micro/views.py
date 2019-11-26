@@ -29,6 +29,17 @@ file_handler.setFormatter(formatter)
 # logger.addHandler(stream_handler)
 logger.addHandler(file_handler)
 
+from django.http import JsonResponse
+
+def user_detail(request):
+    data = {
+                'username': request.user.username, 
+                'firstName': request.user.first_name, 
+                'lastName' : request.user.last_name,
+                'email': request.user.email, 
+                'telephone': request.user.telephone
+            },
+    return JsonResponse(data, safe=False, json_dumps_params={'ensure_ascii': False})
 
 def signup(request):
     if request.method == 'POST':
