@@ -16,12 +16,17 @@ from .tokens import account_activation_token
 from django.contrib.auth import get_user_model
 
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
-formatter = logging.Formatter('%(asctime)s:%(levelname)s:%(name)s:%(message)s')
+formatter = logging.Formatter('%(asctime)s:%(name)s:%(message)s')
 
 file_handler = logging.FileHandler('user.log')
 file_handler.setFormatter(formatter)
 
+# stream_handler = logger.StreamHandler()
+# stream_handler.setFormatter(formatter)
+
+# logger.addHandler(stream_handler)
 logger.addHandler(file_handler)
 
 
@@ -47,7 +52,7 @@ def signup(request):
                 mail_subject, message, to=[to_email]
             )
             email.send()
-            logging.info('Request for create user: {} - {}'.format(username, email))
+            logger.info('Request for create user: {} - {}'.format(username, email))
             return HttpResponse('Please Confirm Your E-mail Address to Complete the Registration.')
     else:
         form = SignupForm()
@@ -67,7 +72,7 @@ def activate(request, uidb64, token):
         username = request.POST.get('username')
         email = request.POST.get('email')
         login(request, user)
-        logging.info('Activated User ID: {} - {}'.format(username, email))
+        logger.info('Activated User ID: {} - {}'.format(username, email))
         return render(request, 'registration/home.html')
     else:
         return HttpResponse('Activation Link is Invalid !')
@@ -110,7 +115,7 @@ def my_login(request):
         #     context['next_url'] = next_url
         username = request.POST.get('username')
         email = request.POST.get('email')
-        logging.info('Access to Login page: {}'.format(username))
+        logger.info('Access to Login page: {}'.format(username))
 
     return render(request, template_name='micro/templates/registration/login.html', context=context)
 
@@ -131,5 +136,5 @@ def edit_profile(request):
         form = EditProfileForm(instance=request.user)
         args = {'form': form}
         username = request.POST.get('username')
-        logging.info('Access to Update Profile page: {}'.format(username))
+        logger.info('Access to Update Profile page: {}'.format(username))
         return render(request, 'registration/updateProfile.html', args)
