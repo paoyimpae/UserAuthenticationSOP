@@ -4,7 +4,7 @@
 <head>
 	<title>💻 Our Microservice : Authentication Service 🌏</title>
 	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="{% static 'bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'bower_components/snackbarjs/dist/snackbar.min.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'bower_components/titatoggle/dist/titatoggle-dist-min.css' %}">
@@ -12,7 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'bower_components/bootstrap-material-design/dist/css/ripples.min.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'bower_components/bootstrap-material-design/dist/css/material-fullpalette.min.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'bower_components/nouislider/distribute/nouislider.min.css' %}">
-    <style>
+  <style>
         body {
             display: flex;
             justify-content: center;
@@ -47,7 +47,13 @@
             margin-top: 20%;
             margin-bottom: 5%;
         }
-    </style>
+        .form-register {
+            width: 90%;
+            display: block;
+            justify-content: center;
+            align-items: center;
+        }
+  </style>
 </head>
 <body>
     <nav 
@@ -56,29 +62,31 @@
     </nav>
     <div class="part">
         <div class="row-1">
-            <a class="navbar-brand">
+            <a class="navbar-brand" ></a>
                 <label class="badge btn-primary" 
                     style="font-family: 'TH SarabunPSK'; font-size: 30px; padding: 15px;">
-                   Account's Information
+                    💻 Microservices : Authentication Service 🔐
                 </label>
             </a>
         </div>
-        <div class="row-2">
+        <div class="row-2" style="text-align: center;">
+          
+            {% block content %}
             <b
-                class="text text-primary" 
-                style="margin-left : 29%; font-family: 'TH SarabunPSK'; font-size: 2em;">
-                <h2>Welcome, {{ user.get_full_name }} !</h2>
-                <p>Username: {{ user.username }}</p>
-                <p>Email address: {{ user.email }}</p>
-                <p>Telephone Number: {{ user.telephone }}</p>
+          class="text text-primary" 
+          style="margin-right : 10%; font-family: 'TH SarabunPSK'; font-size: 2em;">
+          Edit Profile
+        </b>
+          <form method="post">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit">Submit</button>
+          </form>
+          <br>
 
-            </b><br>
-            <p><center><a class="btn btn-primary" style="margin-right: 20%;" href="{% url 'logout' %}">Logout</a></center></p>
-            
-            <!-- <a href="{% url 'signup' %}">signup</a> -->
-            <a href="{% url 'edit' %}">แก้ไขข้อมูล</a>|
-            <a>เปลี่ยนรหัสผ่าน</a>
+            {% endblock %}
         </div>
     </div>
+    
 </body>
 </html>

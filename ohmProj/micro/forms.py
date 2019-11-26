@@ -1,12 +1,14 @@
 from django.conf import settings
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
 from django import forms
 from django.core.mail import send_mail
 from django.forms import TextInput
 from .models import User
+import random as r
 
 
 class SignupForm(UserCreationForm):
+   
     email = forms.EmailField(max_length=200, help_text='Required')
     telephone = forms.CharField(max_length=10)
 
@@ -28,7 +30,9 @@ class OTPAuthenticationForm(AuthenticationForm):
             del self.request.session['_otp']
         else:
             # There is no OTP so create one and send it by email
-            otp = "1234"
+            otp = ""
+            for i in range(4):
+                otp += str(r.randint(0, 9))
             send_mail(
                 subject="Your OTP Password",
                 message="Your OTP password is %s" % otp,
@@ -38,3 +42,14 @@ class OTPAuthenticationForm(AuthenticationForm):
             self.request.session['_otp'] = otp
             # Now we trick form to be invalid
             raise forms.ValidationError("Enter OTP you received via e-mail")
+
+class EditProfileForm(UserChangeForm):
+
+    class Meta:
+        model = User
+        fields = (
+            'first_name',
+            'last_name',
+            'email',
+            'telephone',
+        )

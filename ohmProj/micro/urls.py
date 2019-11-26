@@ -10,6 +10,7 @@ urlpatterns = [
     path('home/', views.home, name='home'),
     path('logout/', views.my_logout, name='logout'),
     path('login/', LoginView.as_view(authentication_form=forms.OTPAuthenticationForm), name='login'),
+    path('edit_profile/', views.edit_profile, name='edit'),
     url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         views.activate, name='activate'),
 ]

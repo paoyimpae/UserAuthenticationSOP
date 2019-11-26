@@ -3,16 +3,26 @@ from django.contrib.auth.models import User
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
+import logging
 
 # Create your views here.
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
-from .forms import SignupForm
+from .forms import SignupForm, EditProfileForm
 from .tokens import account_activation_token
 from django.contrib.auth import get_user_model
+
+logger = logging.getLogger(__name__)
+
+formatter = logging.Formatter('%(asctime)s:%(levelname)s:%(name)s:%(message)s')
+
+file_handler = logging.FileHandler('user.log')
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
 
 
 def signup(request):
@@ -22,6 +32,8 @@ def signup(request):
             user = form.save(commit=False)
             user.is_active = False
             user.save()
+            username = request.POST.get('username')
+            email = request.POST.get('email')
             current_site = get_current_site(request)
             mail_subject = 'Activate your account.'
             message = render_to_string('registration/acc_active_email.html', {
@@ -35,6 +47,7 @@ def signup(request):
                 mail_subject, message, to=[to_email]
             )
             email.send()
+            logging.info('Request for create user: {} - {}'.format(username, email))
             return HttpResponse('Please Confirm Your E-mail Address to Complete the Registration.')
     else:
         form = SignupForm()
@@ -51,7 +64,10 @@ def activate(request, uidb64, token):
     if user is not None and account_activation_token.check_token(user, token):
         user.is_active = True
         user.save()
+        username = request.POST.get('username')
+        email = request.POST.get('email')
         login(request, user)
+        logging.info('Activated User ID: {} - {}'.format(username, email))
         return render(request, 'registration/home.html')
     else:
         return HttpResponse('Activation Link is Invalid !')
@@ -92,6 +108,9 @@ def my_login(request):
         # next_url = request.GET.get('next')
         # if next_url:
         #     context['next_url'] = next_url
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        logging.info('Access to Login page: {}'.format(username))
 
     return render(request, template_name='micro/templates/registration/login.html', context=context)
 
@@ -99,3 +118,18 @@ def my_login(request):
 def my_logout(request):
     logout(request)
     return redirect('login')
+
+def edit_profile(request):
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance=request.user)
+
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('registration:home'))
+            # return render(request, template_name='/home.html')
+    else:
+        form = EditProfileForm(instance=request.user)
+        args = {'form': form}
+        username = request.POST.get('username')
+        logging.info('Access to Update Profile page: {}'.format(username))
+        return render(request, 'registration/updateProfile.html', args)
