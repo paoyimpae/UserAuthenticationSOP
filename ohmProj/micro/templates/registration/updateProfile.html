@@ -40,11 +40,10 @@
         }
         .row-1 {
             display: block;
+            margin-top: 5%;
         }
         .row-2 {
             display: block;
-            padding-left: 10%;
-            margin-top: 20%;
             margin-bottom: 5%;
         }
         .form-register {
@@ -64,26 +63,26 @@
         <div class="row-1">
             <a class="navbar-brand" ></a>
                 <label class="badge btn-primary" 
-                    style="font-family: 'TH SarabunPSK'; font-size: 30px; padding: 15px;">
+                    style="margin-left: 10%; font-family: 'TH SarabunPSK'; font-size: 30px; padding: 15px;">
                     💻 Microservices : Authentication Service 🔐
                 </label>
             </a>
         </div>
         <div class="row-2" style="text-align: center;">
-          
             {% block content %}
             <b
-          class="text text-primary" 
-          style="margin-right : 10%; font-family: 'TH SarabunPSK'; font-size: 2em;">
-          Edit Profile
-        </b>
+                class="text text-primary" 
+                style="margin-right : 10%; font-family: 'TH SarabunPSK'; font-size: 2em;">
+            Edit Profile
+            </b>
           <form method="post">
               {% csrf_token %}
-              {{ form.as_p }}
-              <button type="submit">Submit</button>
+              <div class="container-fluid">
+                {{ form.as_p }}
+                <button class="btn btn-success" type="submit">Submit</button>
+              </div>
           </form>
-          <br>
-
+          
             {% endblock %}
         </div>
     </div>

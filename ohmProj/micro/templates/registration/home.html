@@ -44,8 +44,9 @@
         .row-2 {
             display: block;
             padding-left: 10%;
-            margin-top: 20%;
+            margin-top: 25%;
             margin-bottom: 5%;
+            width:500px;
         }
     </style>
 </head>
@@ -58,26 +59,31 @@
         <div class="row-1">
             <a class="navbar-brand">
                 <label class="badge btn-primary" 
-                    style="font-family: 'TH SarabunPSK'; font-size: 30px; padding: 15px;">
+                    style="margin-left: 38%; font-family: 'TH SarabunPSK'; font-size: 30px; padding: 15px;">
                    Account's Information
                 </label>
             </a>
         </div>
+        
         <div class="row-2">
-            <b
-                class="text text-primary" 
-                style="margin-left : 29%; font-family: 'TH SarabunPSK'; font-size: 2em;">
-                <h2>Welcome, {{ user.get_full_name }} !</h2>
-                <p>Username: {{ user.username }}</p>
-                <p>Email address: {{ user.email }}</p>
-                <p>Telephone Number: {{ user.telephone }}</p>
-
-            </b><br>
-            <p><center><a class="btn btn-primary" style="margin-right: 20%;" href="{% url 'logout' %}">Logout</a></center></p>
-            
+            <div>
+                <div style="font-family: 'TH SarabunPSK'; font-size: 2.25em;"><b class="text text-primary">Welcome,</b> {{ user.get_full_name }} !</div>
+                <div style="font-family: 'TH SarabunPSK'; font-size: 1.75em;"><b class="text text-primary">Username: </b>{{ user.username }}</div>
+                <div style="font-family: 'TH SarabunPSK'; font-size: 1.75em;"><b class="text text-primary">Email address: </b>{{ user.email }}</div>
+                <div style="font-family: 'TH SarabunPSK'; font-size: 1.75em;"><b class="text text-primary">Telephone Number: </b>{{ user.telephone }}</div>
+                <center style="margin-right: 10%;">
+                    <a class="btn btn-primary" style="" href="{% url 'user_detail' %}">User Information</a>
+                    <a class="btn btn-danger" style="" href="{% url 'logout' %}">Logout</a>
+                </center>
+            </div>
             <!-- <a href="{% url 'signup' %}">signup</a> -->
-            <a href="{% url 'edit' %}">แก้ไขข้อมูล</a>|
-            <a>เปลี่ยนรหัสผ่าน</a>
+            <div style="margin-right: 10%;">
+                <center>
+                    <a href="{% url 'edit' %}">แก้ไขข้อมูล</a>
+                    &nbsp&nbsp&nbsp
+                    <a>เปลี่ยนรหัสผ่าน</a>
+                </center>
+            </div>
         </div>
     </div>
 </body>
