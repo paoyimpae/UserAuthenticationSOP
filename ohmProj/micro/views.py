@@ -62,7 +62,7 @@ def signup(request):
 
 def confirmation(request):
     return render(request, 'registration/confirmation.html')
-    
+
 def activate(request, uidb64, token):
     User = get_user_model()
     try:
@@ -76,7 +76,11 @@ def activate(request, uidb64, token):
         login(request, user)
         return render(request, 'registration/home.html')
     else:
-        return HttpResponse('Activation Link is Invalid !')
+        # return HttpResponse('Activation Link is Invalid !')
+        return render(request, 'registration/invalid.html')
+
+def invalid(request):
+    return render(request, 'registration/invalid.html')
 
 @login_required
 def home(request):

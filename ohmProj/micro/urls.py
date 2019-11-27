@@ -3,7 +3,7 @@ from django.urls import path
 from django.contrib.auth.views import LoginView
 from . import views
 from . import forms
-from .views import user_detail, change_password, confirmation
+from .views import user_detail, change_password, confirmation, invalid
 
 urlpatterns = [
     path('signup/', views.signup, name='signup'),
@@ -16,4 +16,5 @@ urlpatterns = [
     path('user_detail/', user_detail, name='user_detail'),
     path('password/', change_password, name='change_password'),
     path('confirmation/', confirmation, name='confirmation'),
+    path('invalid/', invalid, name='invalid'),
 ]
