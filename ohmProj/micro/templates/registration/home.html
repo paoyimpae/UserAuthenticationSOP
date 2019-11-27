@@ -72,9 +72,7 @@
                 <div style="font-family: 'TH SarabunPSK'; font-size: 1.75em;"><b class="text text-primary">Email address: </b>{{ user.email }}</div>
                 <div style="font-family: 'TH SarabunPSK'; font-size: 1.75em;"><b class="text text-primary">Tel: </b>{{ user.telephone }}</div>
                 <div style="font-family: 'TH SarabunPSK'; font-size: 1.75em;"><b class="text text-primary">Group: </b>{{ user.group }}</div>
-                <center style="margin-right: 10%;">
-                    <a class="btn btn-warning" style="" href="{% url 'get_data' %}">Token</a>
-                </center>
+
                 <center style="margin-right: 10%; margin-bottom: 5%;">
                     <a class="btn btn-primary" style="" href="{% url 'user_detail' %}">User Information</a>
                     <a class="btn btn-danger" style="" href="{% url 'logout' %}">Logout</a>
