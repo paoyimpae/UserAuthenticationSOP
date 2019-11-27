@@ -34,7 +34,7 @@
 <br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="images/Python.png" width="100" />
+<img src="images/Python.png" width="250" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="images/Django.png" width="250" />
 
