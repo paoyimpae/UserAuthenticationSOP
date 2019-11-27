@@ -9,6 +9,7 @@ Group.add_to_class('description', models.CharField(max_length=180,null=True, bla
 
 class User(AbstractUser):
     telephone = models.CharField(max_length=10)
+    group = models.CharField(max_length=20)
 
     def __str__(self):
         return self.username

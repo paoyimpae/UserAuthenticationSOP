@@ -18,47 +18,7 @@ from django.http import JsonResponse
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 
 from django.contrib.auth.decorators import login_required
-
-logger = logging.getLogger(__name__)
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'standard': {
-            'format': '%(asctime)s:%(name)s:%(message)s'
-        },
-    },
-    'handlers': {
-        'default': {
-            'level': 'INFO',
-            'class': 'logging.handler.RotatingFileHandler',
-            'filename': 'user.log',
-            'maxBytes': 1024*1024*5,
-            'backupCount': 5,
-            'formatter': 'standard',
-        },
-        'request_handler': {
-            'level': 'INFO',
-            'class': 'logging.handler.RotatingFileHandler',
-            'filename': 'django_req.log',
-            'maxBytes': 1024*1024*5,
-            'backupCount': 5,
-            'formatter': 'standard',
-        },
-    },
-    'loggers': {
-        '': {
-            'handlers': ['default'],
-            'level': 'INFO',
-            'propagate': True
-        },
-        'django_req': {
-            'handlers': ['request_handler'],
-            'level': 'INFO',
-            'propagate': False
-        },
-    }
-}
+from django.contrib.auth.models import Group
 @login_required
 def user_detail(request):
     data = {
@@ -77,6 +37,10 @@ def signup(request):
             user = form.save(commit=False)
             user.is_active = False
             user.save()
+            if form.cleaned_data.get('group') != '---------':
+                group = Group.objects.get(name=form.cleaned_data.get('group'))
+                user.groups.add(group)
+                user.save()
             current_site = get_current_site(request)
             mail_subject = 'Activate your account.'
             message = render_to_string('registration/acc_active_email.html', {
@@ -149,7 +113,6 @@ def my_login(request):
         #     context['next_url'] = next_url
         username = request.POST.get('username')
         email = request.POST.get('email')
-        logger.info('Access to Login page: {}'.format(username))
 
     return render(request, template_name='micro/templates/registration/login.html', context=context)
 

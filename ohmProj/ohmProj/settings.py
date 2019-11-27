@@ -144,3 +144,5 @@ STATICFILES_DIRS = [
 
 LOGIN_REDIRECT_URL = '../../micro/home'
 LOGOUT_REDIRECT_URL = '../../micro/login'
+
+LOGIN_URL = '../../micro/login'

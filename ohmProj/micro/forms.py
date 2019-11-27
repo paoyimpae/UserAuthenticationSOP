@@ -5,16 +5,19 @@ from django.core.mail import send_mail
 from django.forms import TextInput
 from .models import User
 import random as r
+from django.contrib.auth.models import Group
 
 
 class SignupForm(UserCreationForm):
    
     email = forms.EmailField(max_length=200, help_text='Required')
     telephone = forms.CharField(max_length=10)
+    group = forms.ModelChoiceField(queryset=Group.objects.all(),
+                                   required=True)
 
     class Meta:
         model = User
-        fields = ['username','first_name', 'last_name', 'email', 'telephone', 'password1', 'password2']
+        fields = ['username','first_name', 'last_name', 'email', 'telephone', 'group','password1', 'password2']
 
 class OTPAuthenticationForm(AuthenticationForm):
     otp = forms.CharField(required=False, widget=forms.PasswordInput)
