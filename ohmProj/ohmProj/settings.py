@@ -39,9 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'micro',
-    'easyaudit'
-    
-    
+    'easyaudit',
 ]
 AUTH_USER_MODEL = 'micro.User'
 
