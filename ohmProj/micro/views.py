@@ -17,6 +17,7 @@ from django.contrib.auth import get_user_model, update_session_auth_hash
 from django.http import JsonResponse
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 
+from django.contrib.auth.decorators import login_required
 
 logger = logging.getLogger(__name__)
 LOGGING = {
@@ -58,7 +59,7 @@ LOGGING = {
         },
     }
 }
-
+@login_required
 def user_detail(request):
     data = {
                 'username': request.user.username, 
@@ -110,7 +111,7 @@ def activate(request, uidb64, token):
     else:
         return HttpResponse('Activation Link is Invalid !')
 
-
+@login_required
 def home(request):
     return render(request, template_name='registration/home.html')
 
@@ -152,11 +153,12 @@ def my_login(request):
 
     return render(request, template_name='micro/templates/registration/login.html', context=context)
 
-
+@login_required
 def my_logout(request):
     logout(request)
     return redirect('login')
 
+@login_required
 def edit_profile(request):
     if request.method == 'POST':
         form = EditProfileForm(request.POST, instance=request.user)
@@ -171,6 +173,7 @@ def edit_profile(request):
         username = request.POST.get('username')
         return render(request, 'registration/updateProfile.html', args)
 
+@login_required
 def change_password(request):
     if request.method == 'POST':
         form = PasswordChangeForm(data=request.POST, user=request.user)
