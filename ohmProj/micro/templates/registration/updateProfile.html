@@ -29,7 +29,7 @@
             margin: 5%;
         }
         .part {
-            width: auto;
+            width: 750px;
             margin-top: 75px;
             padding: auto;
             display: block;
@@ -68,14 +68,15 @@
                 </label>
             </a>
         </div>
-        <div class="row-2" style="text-align: center;">
+        <div class="row-2" style="margin-left: 18%; text-align: center;">
+            <br />
             {% block content %}
             <b
                 class="text text-primary" 
-                style="margin-right : 10%; font-family: 'TH SarabunPSK'; font-size: 2em;">
+                style="margin-right : 20%; font-family: 'TH SarabunPSK'; font-size: 2em;">
             Edit Profile
             </b>
-          <form method="post">
+          <form style="width: 500px;" method="post">
               {% csrf_token %}
               <div class="container-fluid">
                 {{ form.as_p }}
