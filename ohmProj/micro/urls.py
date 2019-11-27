@@ -1,7 +1,6 @@
 from django.conf.urls import url
 from django.urls import path
 from django.contrib.auth.views import LoginView
-
 from . import views
 from . import forms
 from .views import user_detail, change_password
