@@ -5,7 +5,7 @@ from django.core.mail import EmailMessage
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, reverse
 from django.urls import reverse_lazy
-import logging
+import logging, jwt
 
 # Create your views here.
 from django.template.loader import render_to_string
@@ -21,11 +21,10 @@ from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 
-import jwt, json
 @login_required
 
 def user_detail(request):
-    payload = [{
+    data = [{
                 'username': request.user.username, 
                 'firstName': request.user.first_name, 
                 'lastName' : request.user.last_name,
@@ -33,20 +32,12 @@ def user_detail(request):
                 'telephone': request.user.telephone,
                 'group': request.user.group,
             }]
-    jwt_token = jwt.encode({'data':payload}, "SECRET_KEY", algorithm="HS256")
-
-    data = {
-                'username': request.user.username, 
-                'firstName': request.user.first_name, 
-                'lastName' : request.user.last_name,
-                'email': request.user.email, 
-                'telephone': request.user.telephone,
-                'group': request.user.group,
-                'token': str(jwt_token)
-            }
+    jwt_token = jwt.encode({'data':data}, "SECRET_KEY", algorithm="HS256")
+    decoded= jwt.decode(jwt_token, "SECRET_KEY", algorithms=['HS256'],)
     # print(jwt_token)
-
+    print(decoded)
     # jwt_decode = jwt.decode(jwt_token, "SECRET_KEY", "[HS256]")
+    #
     # username = jwt_decode['username']
 
     return JsonResponse(data, safe=False, json_dumps_params={'ensure_ascii': False})
@@ -136,7 +127,31 @@ def invalid(request):
 
 @login_required
 def home(request):
-    return render(request, template_name='registration/home.html')
+    context = {}
+    return render(request, template_name='registration/home.html', context=context)
+
+@login_required
+def get_data(request):
+    data = [{
+                'username': request.user.username, 
+                'firstName': request.user.first_name, 
+                'lastName' : request.user.last_name,
+                'email': request.user.email, 
+                'telephone': request.user.telephone,
+                'group': request.user.group,
+            }]
+    jwt_token = jwt.encode({'data':data}, "SECRET_KEY", algorithm="HS256").decode('utf-8')
+    decoded= jwt.decode(jwt_token, "SECRET_KEY", algorithms=['HS256'],)
+    data_show = [{
+                    'id': request.user.id,
+                    'token': jwt_token
+                }]
+    # print(jwt_token)
+    print(decoded)
+    # jwt_decode = jwt.decode(jwt_token, "SECRET_KEY", "[HS256]")
+    #
+    # username = jwt_decode['username']
+    return JsonResponse(data_show, safe=False, json_dumps_params={'ensure_ascii': False})
 
 
 def my_login(request):

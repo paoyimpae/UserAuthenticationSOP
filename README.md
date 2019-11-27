@@ -39,7 +39,7 @@
 <img src="images/Django.png" width="250" />
 
 ### ![](https://fonts.gstatic.com/s/i/materialicons/library_books/v1/24px.svg) Libraries
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ในระบบ Microservices ของพวกเรา จะมีการใช้ Libraries ของ Django คือ Django Easy Audit
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ในระบบ Microservices ของพวกเรา จะมีการใช้ Libraries ของ Django คือ Django Easy Audit และ PyJWT
 
 
 ## ![](https://fonts.gstatic.com/s/i/materialicons/people/v1/24px.svg) About Developer Team
