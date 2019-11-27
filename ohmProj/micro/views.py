@@ -2,8 +2,9 @@ from django.contrib.auth import authenticate, logout, login
 from django.contrib.auth.models import User
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, reverse
+from django.urls import reverse_lazy
 import logging
 
 # Create your views here.
@@ -135,8 +136,8 @@ def edit_profile(request):
 
         if form.is_valid():
             form.save()
-            return render(request, 'registration/home.html')
-            # return render(request, template_name='/home.html')
+            # return HttpResponseRedirect(reverse_lazy('registration:home'))
+            return render(request, template_name='registration/home.html')
     else:
         form = EditProfileForm(instance=request.user)
         args = {'form': form}

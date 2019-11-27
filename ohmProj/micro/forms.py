@@ -6,6 +6,7 @@ from django.forms import TextInput
 from .models import User
 import random as r
 from django.contrib.auth.models import Group
+from django.core.exceptions import ValidationError
 
 
 class SignupForm(UserCreationForm):
@@ -14,6 +15,17 @@ class SignupForm(UserCreationForm):
     telephone = forms.CharField(max_length=10)
     group = forms.ModelChoiceField(queryset=Group.objects.all(),
                                    required=True)
+
+    def clean(self):
+        username = self.cleaned_data.get('username')
+        email = self.cleaned_data.get('email')
+        if User.objects.filter(username=username).exists():
+            raise ValidationError("Username already exists")
+        if User.objects.filter(email=email).exists():
+            raise ValidationError("Email already exists")
+        
+    
+        return self.cleaned_data
 
     class Meta:
         model = User
@@ -48,11 +60,21 @@ class OTPAuthenticationForm(AuthenticationForm):
 
 
 class EditProfileForm(UserChangeForm):
+    # def clean(self):
+    #     username = self.cleaned_data.get('username')
+    #     email = self.cleaned_data.get('email')
+    #     if User.objects.filter(username=username).exists():
+    #         raise ValidationError("Username already exists")
+    #     if User.objects.filter(email=email).exists():
+    #         raise ValidationError("Email already exists")
+        
+    
+    #     return self.cleaned_data
+
     class Meta:
         model = User
         fields = (
             'first_name',
             'last_name',
-            'email',
             'telephone',
         )
