@@ -54,12 +54,15 @@ def signup(request):
                 mail_subject, message, to=[to_email]
             )
             email.send()
-            return HttpResponse('Please Confirm Your E-mail Address to Complete the Registration.')
+            # return HttpResponse('Please Confirm Your E-mail Address to Complete the Registration.')
+            return render(request, 'registration/confirmation.html')
     else:
         form = SignupForm()
     return render(request, 'registration/signup.html', {'form': form})
 
-
+def confirmation(request):
+    return render(request, 'registration/confirmation.html')
+    
 def activate(request, uidb64, token):
     User = get_user_model()
     try:
