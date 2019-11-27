@@ -13,23 +13,51 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
 from .forms import SignupForm, EditProfileForm
 from .tokens import account_activation_token
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, update_session_auth_hash
+from django.http import JsonResponse
+from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
+
 
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-
-formatter = logging.Formatter('%(asctime)s:%(name)s:%(message)s')
-
-file_handler = logging.FileHandler('user.log')
-file_handler.setFormatter(formatter)
-
-# stream_handler = logger.StreamHandler()
-# stream_handler.setFormatter(formatter)
-
-# logger.addHandler(stream_handler)
-logger.addHandler(file_handler)
-
-from django.http import JsonResponse
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'standard': {
+            'format': '%(asctime)s:%(name)s:%(message)s'
+        },
+    },
+    'handlers': {
+        'default': {
+            'level': 'INFO',
+            'class': 'logging.handler.RotatingFileHandler',
+            'filename': 'user.log',
+            'maxBytes': 1024*1024*5,
+            'backupCount': 5,
+            'formatter': 'standard',
+        },
+        'request_handler': {
+            'level': 'INFO',
+            'class': 'logging.handler.RotatingFileHandler',
+            'filename': 'django_req.log',
+            'maxBytes': 1024*1024*5,
+            'backupCount': 5,
+            'formatter': 'standard',
+        },
+    },
+    'loggers': {
+        '': {
+            'handlers': ['default'],
+            'level': 'INFO',
+            'propagate': True
+        },
+        'django_req': {
+            'handlers': ['request_handler'],
+            'level': 'INFO',
+            'propagate': False
+        },
+    }
+}
 
 def user_detail(request):
     data = {
@@ -48,8 +76,6 @@ def signup(request):
             user = form.save(commit=False)
             user.is_active = False
             user.save()
-            username = request.POST.get('username')
-            email = request.POST.get('email')
             current_site = get_current_site(request)
             mail_subject = 'Activate your account.'
             message = render_to_string('registration/acc_active_email.html', {
@@ -63,7 +89,6 @@ def signup(request):
                 mail_subject, message, to=[to_email]
             )
             email.send()
-            logger.info('Request for create user: {} - {}'.format(username, email))
             return HttpResponse('Please Confirm Your E-mail Address to Complete the Registration.')
     else:
         form = SignupForm()
@@ -80,10 +105,7 @@ def activate(request, uidb64, token):
     if user is not None and account_activation_token.check_token(user, token):
         user.is_active = True
         user.save()
-        username = request.POST.get('username')
-        email = request.POST.get('email')
         login(request, user)
-        logger.info('Activated User ID: {} - {}'.format(username, email))
         return render(request, 'registration/home.html')
     else:
         return HttpResponse('Activation Link is Invalid !')
@@ -141,11 +163,26 @@ def edit_profile(request):
 
         if form.is_valid():
             form.save()
-            return redirect(reverse('registration:home'))
+            return render(request, 'registration/home.html')
             # return render(request, template_name='/home.html')
     else:
         form = EditProfileForm(instance=request.user)
         args = {'form': form}
         username = request.POST.get('username')
-        logger.info('Access to Update Profile page: {}'.format(username))
         return render(request, 'registration/updateProfile.html', args)
+
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(data=request.POST, user=request.user)
+
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            return render(request, 'registration/home.html')
+        else:
+            return redirect(reverse('registration:change_password'))
+    else:
+        form = PasswordChangeForm(user=request.user)
+
+        args = {'form': form}
+        return render(request, 'registration/change_password.html', args)
