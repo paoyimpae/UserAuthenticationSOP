@@ -10,7 +10,7 @@ from django.core.exceptions import ValidationError
 
 
 class SignupForm(UserCreationForm):
-   
+
     email = forms.EmailField(max_length=200, help_text='Required')
     telephone = forms.CharField(max_length=10)
     group = forms.ModelChoiceField(queryset=Group.objects.all(),

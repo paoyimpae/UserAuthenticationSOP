@@ -27,7 +27,9 @@ def user_detail(request):
                 'firstName': request.user.first_name, 
                 'lastName' : request.user.last_name,
                 'email': request.user.email, 
-                'telephone': request.user.telephone
+                'telephone': request.user.telephone,
+                'group': request.user.group,
+                'token': account_activation_token.make_token(request.user)
             },
     return JsonResponse(data, safe=False, json_dumps_params={'ensure_ascii': False})
 
