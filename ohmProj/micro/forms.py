@@ -46,8 +46,8 @@ class OTPAuthenticationForm(AuthenticationForm):
             # Now we trick form to be invalid
             raise forms.ValidationError("Enter OTP you received via e-mail")
 
-class EditProfileForm(UserChangeForm):
 
+class EditProfileForm(UserChangeForm):
     class Meta:
         model = User
         fields = (
