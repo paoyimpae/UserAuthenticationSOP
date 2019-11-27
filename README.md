@@ -30,31 +30,17 @@
 
 ### ![](https://fonts.gstatic.com/s/i/materialicons/laptop_chromebook/v1/24px.svg) Languages
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ในระบบ Microservices ของพวกเรา ถูกพัฒนาขึ้นโดยภาษา Java และเป็นโปรเจ็กต์แบบ Maven 👍
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ในระบบ Microservices ของพวกเรา ถูกพัฒนาขึ้นโดยภาษา Python และเป็นโปรเจ็กต์แบบ Django 👍
 <br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="images/Java.png" width="100" />
+<img src="images/Python.png" width="100" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="images/Maven.png" width="250" />
-
-### ![](https://fonts.gstatic.com/s/i/materialicons/memory/v1/24px.svg) Databases
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ในระบบ Microservices ของพวกเรา ใช้การเก็บข้อมูลบนฐานข้อมูลแบบ No-SQL ซึ่งจะใข้ผลิตภัณฑ์จาก Google สำหรับการ Implements (Google Firebase) ✨
-<br />
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="images/Google.png" width="250" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="images/Firebase.png" width="250" />
+<img src="images/Django.png" width="250" />
 
 ### ![](https://fonts.gstatic.com/s/i/materialicons/library_books/v1/24px.svg) Libraries
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ในระบบ Microservices ของพวกเรา จะมีการใช้ Libraries ของ Django คือ Django Easy Audit
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ในระบบ Microservices ของพวกเรา จะมีการใช้ Libraries / Dependencies ซึ่งประกอบด้วย Spring Libraries (ได้แก่ spring-boot-autoconfigure, spring-web, spring-boot-starter-test, spring-boot-starter-web ฯลฯ) (อาจจะมีการใช้ Libraries ตัวอื่น ๆ ในอนาคต) ✔
-<br />
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="images/Spring.png" width="250" />
 
 ## ![](https://fonts.gstatic.com/s/i/materialicons/people/v1/24px.svg) About Developer Team
 
