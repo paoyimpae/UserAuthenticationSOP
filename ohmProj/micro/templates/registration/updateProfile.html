@@ -29,7 +29,7 @@
             margin: 5%;
         }
         .part {
-            width: 750px;
+            width: 650px;
             margin-top: 75px;
             padding: auto;
             display: block;
@@ -63,23 +63,36 @@
         <div class="row-1">
             <a class="navbar-brand" href="{% url 'home' %}">
                 <label class="badge btn-primary" 
-                    style="margin-left: 10%; font-family: 'TH SarabunPSK'; font-size: 30px; padding: 15px;">
+                    style="margin-left: 8%; font-family: 'TH SarabunPSK'; font-size: 30px; padding: 15px;">
                     💻 Microservices : Authentication Service 🔐
                 </label>
             </a>
         </div>
-        <div class="row-2" style="margin-left: 18%; text-align: center;">
+        <div class="row-2" style="margin-left: 12%; text-align: center;">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
             <br />
             {% block content %}
             <b
                 class="text text-primary" 
-                style="margin-right : 20%; font-family: 'TH SarabunPSK'; font-size: 2em;">
+                style="margin-right : 10%; font-family: 'TH SarabunPSK'; font-size: 2em;">
             Edit Profile
             </b>
           <form style="width: 500px;" method="post">
               {% csrf_token %}
+              <br />
               <div class="container-fluid">
-                {{ form.as_p }}
+                <style>
+                    label.id_password, #id_password, .helptext {
+                        display: none;
+                    }
+                </style>
+                <div style="height: 150px; overflow: hidden;">
+                    {{ form.as_p }}
+                </div>
                 <button class="btn btn-success" type="submit">Submit</button>
               </div>
           </form>
