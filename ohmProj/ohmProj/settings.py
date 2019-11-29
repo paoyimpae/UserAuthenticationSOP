@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'micro',
     'easyaudit',
+    'rest_framework',
 ]
 AUTH_USER_MODEL = 'micro.User'
 

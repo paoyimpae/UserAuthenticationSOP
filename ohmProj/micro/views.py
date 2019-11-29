@@ -5,6 +5,7 @@ from django.core.mail import EmailMessage
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, reverse
 from django.urls import reverse_lazy
+from django.views import View
 import logging, jwt
 
 # Create your views here.
@@ -21,8 +22,33 @@ from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 
-@login_required
+from django.shortcuts import render
 
+from rest_framework.viewsets import generics
+from .models import User
+from .serializers import UserSerializer
+
+### API Part : For Admin Only ###
+
+class UserAll(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class UserChoose(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    lookup_field = 'id'
+    serializer_class = UserSerializer
+
+class UserCreate(generics.ListCreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    
+class UserUpdateOrDelete(generics.RetrieveUpdateDestroyAPIView):
+    queryset = User.objects.all()
+    lookup_field = 'id'
+    serializer_class = UserSerializer
+
+@login_required
 def user_detail(request):
     payload = [{
                 'username': request.user.username, 
@@ -50,8 +76,6 @@ def user_detail(request):
     #
     # username = jwt_decode['username']
     return JsonResponse(data, safe=False, json_dumps_params={'ensure_ascii': False})
-
-
 
 def signup(request):
     if request.method == 'POST':
