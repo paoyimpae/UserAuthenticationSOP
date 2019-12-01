@@ -23,7 +23,7 @@
 
 
 ## ![](https://fonts.gstatic.com/s/i/materialicons/perm_media/v1/24px.svg) Diagram
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/AggregatorPatternDiagram.png" width="500" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/AggregatorPatternDiagramEdited.png" width="500" />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;<i>อ้างอิงจาก Aggregator Pattern เอกสาร Microservices Architecture TutorialsPoint</i>
 * หมายเหตุ : ตรง Database Icon ในที่นี้หมายถึง ตาราง ส่วน Database มี Schema เดียว คือ Authen 
