@@ -282,4 +282,4 @@ python manage.py runserver
 |   ศุภกฤต อภิญญาณพงศ์   |   60070097   |    ![Ton](images/Ton.jpg)   | Access Checking |
 |   ไอศูรย์ ทิมศรี   |   60070121   |    ![Ken](images/Ken.jpg)   | Overview (Check All in System) |
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;โครงงานนี้เป็นส่วนหนึ่งของวิชา Service-Oriented Programming (06016325) ชั้นปีที่ 3 ภาคการศึกษาที่ 1<br/> ปีการศึกษา 2562 สาขาเทคโนโลยีสารสนเทศ คณะเทคโนโลยีสารสนเทศ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;โครงงานนี้เป็นส่วนหนึ่งของวิชา Service-Oriented Programming (06016325) <br/>ชั้นปีที่ 3 ภาคการศึกษาที่ 1 ปีการศึกษา 2562 สาขาเทคโนโลยีสารสนเทศ <br/>คณะเทคโนโลยีสารสนเทศ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
