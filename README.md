@@ -210,7 +210,7 @@ http://127.0.0.1:8080/micro/password_reset/
 ```
 http://127.0.0.1:8080/micro/api/user/create/
 ```
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;จากนั้นกรอกข้อมูลที่ต้องทำการสมัครสมาชิกและกด Post โดยการกำหนดรหัสผ่าน จะทำได้โดยการกด<br/> Reset Password ด้วยอีเมล์เท่านั้น (ย้อนกลับไปดูข้างบน) เนื่องจากไม่สามารถทำการ Password Hashing ได้ จึงทำให้<br/>ไม่สามารถบันทึกรหัสผ่านด้วย JSON ได้
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;จากนั้นกรอกข้อมูลที่ต้องทำการสมัครสมาชิกและกด Post โดยการกำหนดรหัสผ่าน จะทำได้โดยการกด<br/> Reset Password ด้วยอีเมล์เท่านั้น (ย้อนกลับไปดูข้างบน) เนื่องจากไม่สามารถทำการ Password Hashing ได้ <br/>จึงทำให้ไม่สามารถบันทึกรหัสผ่านด้วย JSON ได้
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="images/admin_register_1.png" width="500" />
